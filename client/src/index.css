@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Global Styles ──────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #fafbfc;
+  color: #1a1a2e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c8d6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ba3b5;
+}
+
+/* ─── Glass Card Utility ─────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Gradient Background ────────────────────────────── */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-subtle {
+  background: linear-gradient(
+    135deg,
+    #f8f9ff 0%,
+    #f0f2ff 30%,
+    #faf0ff 70%,
+    #fff8f0 100%
+  );
+}
+
+/* ─── Canvas Cursor ──────────────────────────────────── */
+.canvas-crosshair {
+  cursor: crosshair;
+}
+
+/* ─── Animations ─────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Chat bubble ────────────────────────────────────── */
+.chat-bubble {
+  position: relative;
+  border-radius: 18px 18px 18px 4px;
+}
+.chat-bubble-self {
+  border-radius: 18px 18px 4px 18px;
+}
