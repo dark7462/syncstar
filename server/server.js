@@ -9,7 +9,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { nanoid } = require("nanoid");
+const crypto = require("crypto");
 const Room = require("./models/Room");
 
 // ── App setup ────────────────────────────────────────────
@@ -100,7 +100,7 @@ io.on("connection", (socket) => {
 
     // ── Create Room ──────────────────────────────────────
     socket.on("create-room", async (callback) => {
-        const roomId = nanoid(6).toUpperCase(); // short, friendly code
+        const roomId = crypto.randomBytes(4).toString("base64url").slice(0, 6).toUpperCase();
 
         // In-memory
         rooms.set(roomId, {
