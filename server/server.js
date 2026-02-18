@@ -16,14 +16,23 @@ const Room = require("./models/Room");
 const app = express();
 const server = http.createServer(app);
 
+// Build allowed origins list (localhost for dev + CLIENT_URL for production)
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://localhost:5174",
+];
+if (process.env.CLIENT_URL) {
+    allowedOrigins.push(process.env.CLIENT_URL);
+}
+
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URL || "http://localhost:5173",
+        origin: allowedOrigins,
         methods: ["GET", "POST"],
     },
 });
 
-app.use(cors());
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 // ── In-memory room state (fast lookups) ──────────────────
