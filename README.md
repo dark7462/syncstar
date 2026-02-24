@@ -1,4 +1,4 @@
-# 🎮 PlaySync — Real-Time Multi-Game Platform
+# 🎮 SyncStar — Real-Time Multi-Game Platform
 
 A MERN stack real-time multiplayer platform built with **MongoDB, Express, React, Node.js**, and **Socket.io**. Create a room, share the code with friends, and collaborate on a whiteboard — no sign-up required.
 
